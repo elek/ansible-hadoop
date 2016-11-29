@@ -1,0 +1,7 @@
+---
+- hosts: node1
+  roles:
+     - resourcemanager
+- hosts: all
+  roles:
+     - nodemanager 

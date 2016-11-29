@@ -1,0 +1,4 @@
+- template: src=supervisor.conf dest=/etc/supervisor/conf.d/hbase-rest.conf
+- supervisorctl: name=hbase-rest state=present
+- supervisorctl: name=hbase-rest state=restarted
+

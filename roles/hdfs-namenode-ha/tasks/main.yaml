@@ -1,0 +1,7 @@
+- file: dest={{install_dir}}/hadoop/etc/namenode state=directory
+- template: src=hdfs-site.xml dest={{install_dir}}/hadoop/etc/namenode/hdfs-site.xml
+- template: src=core-site.xml dest={{install_dir}}/hadoop/etc/namenode/core-site.xml
+- template: src=supervisor.conf dest=/etc/supervisor/conf.d/namenode.conf
+- supervisorctl: name=namenode state=present
+- supervisorctl: name=namenode state=restarted
+

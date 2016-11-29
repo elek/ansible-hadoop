@@ -1,0 +1,7 @@
+- file: dest={{install_dir}}/hadoop/etc/journalnode state=directory
+- template: src=hdfs-site.xml dest={{install_dir}}/hadoop/etc/journalnode/hdfs-site.xml
+- template: src=core-site.xml dest={{install_dir}}/hadoop/etc/journalnode/core-site.xml
+- template: src=supervisor.conf dest=/etc/supervisor/conf.d/journalnode.conf
+- supervisorctl: name=journalnode state=present
+- supervisorctl: name=journalnode state=restarted
+

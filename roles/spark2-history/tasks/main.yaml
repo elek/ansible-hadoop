@@ -1,0 +1,5 @@
+- template: src=spark-env.sh dest="{{install_dir}}/spark2/conf/"
+- template: src=supervisor.conf dest=/etc/supervisor/conf.d/
+- supervisorctl: name=spark2-history state=present
+- supervisorctl: name=spark2-history state=restarted
+

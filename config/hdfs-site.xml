@@ -1,0 +1,6 @@
+<configuration>
+<property><name>dfs.replication</name><value>1</value></property>
+<property><name>dfs.permissions.superusergroup</name><value>admin</value></property>
+<property><name>dfs.datanode.data.dir</name><value>/grid/0/datanode</value></property>
+<property><name>dfs.namenode.name.dir</name><value>/grid/0/namenode</value></property>
+</configuration>

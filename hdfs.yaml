@@ -1,0 +1,7 @@
+---
+- hosts: node1
+  roles:
+     - { role: 'hdfs-namenode', tags: ['namenode'] }
+- hosts: all
+  roles:
+     - { role: 'hdfs-datanode', tags: ['datanode'] }

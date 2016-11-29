@@ -1,0 +1,18 @@
+<configuration>
+<property><name>dfs.replication</name><value>1</value></property>
+<property><name>dfs.permissions.superusergroup</name><value>admin</value></property>
+<property><name>dfs.nameservices</name><value>sh</value></property>
+<property><name>dfs.ha.namenodes.sh</name><value>nn1,nn2</value></property>
+<property><name>dfs.namenode.rpc-address.sh.nn1</name><value>{{ hostvars.node1.ansible_host }}:8021</value></property>
+<property><name>dfs.namenode.rpc-address.sh.nn2</name><value>{{ hostvars.node2.ansible_host }}:8021</value></property>
+<property><name>dfs.namenode.servicerpc-address.sh.nn1</name><value>{{ hostvars.node1.ansible_host }}:8022</value></property>
+<property><name>dfs.namenode.servicerpc-address.sh.nn2</name><value>{{ hostvars.node2.ansible_host }}:8022</value></property>
+<property><name>dfs.namenode.http-address.sh.nn1</name><value>{{ hostvars.node1.ansible_host }}:50070</value></property>
+<property><name>dfs.namenode.http-address.sh.nn2</name><value>{{ hostvars.node2.ansible_host }}:50070</value></property>
+<property><name>dfs.namenode.shared.edits.dir</name><value>qjournal://{{ hostvars.node3.ansible_host }}:8485;{{ hostvars.node4.ansible_host }}:8485;{{ hostvars.node5.ansible_host }}:8485/sh</value></property>
+<property><name>dfs.ha.fencing.methods</name><value>shell(/bin/true)</value></property>
+<property><name>dfs.client.failover.proxy.provider.sh</name><value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value></property>
+<property><name>dfs.datanode.data.dir</name><value>/grid/0/datanode</value></property>
+<property><name>dfs.ha.automatic-failover.enabled</name><value>true</value></property>
+<property><name>ha.zookeeper.quorum</name><value>{{ hostvars.node1.ansible_host }}:2181</value></property>
+</configuration>

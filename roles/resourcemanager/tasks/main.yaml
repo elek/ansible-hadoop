@@ -1,0 +1,9 @@
+- template: src=yarn-site.xml dest={{install_dir}}/hadoop/etc/resourcemanager/yarn-site.xml 
+- template: src=hdfs-site.xml dest={{install_dir}}/hadoop/etc/resourcemanager/hdfs-site.xml 
+- template: src=core-site.xml dest={{install_dir}}/hadoop/etc/resourcemanager/core-site.xml 
+- template: src=capacity-scheduler.xml dest={{install_dir}}/hadoop/etc/resourcemanager/capacity-scheduler.xml
+- template: src=supervisor.conf dest=/etc/supervisor/conf.d/resourcemanager.conf
+- file: name=/etc/supervisor/conf.d/supervisor.conf state=absent
+- supervisorctl: name=resourcemanager state=present
+- supervisorctl: name=resourcemanager state=restarted
+

@@ -1,0 +1,5 @@
+- template: src=supervisor.conf dest=/etc/supervisor/conf.d/zeppelin2.conf
+- template: src=zeppelin-env.sh dest={{install_dir}}/zeppelin2/conf/zeppelin-env.sh
+- supervisorctl: name=zeppelin2 state=present
+- supervisorctl: name=zeppelin2 state=restarted
+

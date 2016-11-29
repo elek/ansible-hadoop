@@ -1,0 +1,6 @@
+- file: dest={{install_dir}}/hadoop/etc/timelineserver state=directory
+- template: src=yarn-site.xml dest={{install_dir}}/hadoop/etc/timelineserver/yarn-site.xml
+- template: src=supervisor.conf dest=/etc/supervisor/conf.d/timelineserver.conf
+- supervisorctl: name=timelineserver state=present
+- supervisorctl: name=timelineserver state=restarted
+

@@ -1,0 +1,10 @@
+---
+- hosts: hbase-master
+  roles:
+     - { role: 'hbase-master', tags: ['hbase-master'] }
+- hosts: hbase-regionserver
+  roles:
+      - { role: 'hbase-regionserver', tags: ['hbase-regionserver'] }
+- hosts: node1
+  roles:
+      - { role: 'hbase-rest', tags: ['hbase-rest'] }

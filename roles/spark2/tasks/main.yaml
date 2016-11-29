@@ -1,0 +1,2 @@
+- template: src=spark-defaults.conf dest="{{install_dir}}/spark2/conf/"
+

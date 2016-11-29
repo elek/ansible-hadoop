@@ -1,0 +1,5 @@
+- template: src=hbase-site.xml dest={{install_dir}}/hbase/conf/hbase-site.xml
+- template: src=supervisor.conf dest=/etc/supervisor/conf.d/hbase-regionserver.conf
+- supervisorctl: name=hbase-regionserver state=present
+- supervisorctl: name=hbase-regionserver state=restarted
+

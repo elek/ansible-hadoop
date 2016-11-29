@@ -1,0 +1,12 @@
+<configuration>
+<property><name>dfs.replication</name><value>1</value></property>
+<property><name>dfs.permissions.superusergroup</name><value>admin</value></property>
+<property><name>dfs.nameservices</name><value>sh</value></property>
+<property><name>dfs.ha.namenodes.sh</name><value>nn1,nn2</value></property>
+<property><name>dfs.namenode.rpc-address.sh.nn1</name><value>{{ hostvars.node1.ansible_host }}:8021</value></property>
+<property><name>dfs.namenode.rpc-address.sh.nn2</name><value>{{ hostvars.node2.ansible_host }}:8021</value></property>
+<property><name>dfs.namenode.http-address.sh.nn1</name><value>{{ hostvars.node1.ansible_host }}:50070</value></property>
+<property><name>dfs.namenode.http-address.sh.nn2</name><value>{{ hostvars.node2.ansible_host }}:50070</value></property>
+<property><name>dfs.namenode.shared.edits.dir</name><value>{{ hostvars.node3.ansible_host }}:8485;{{ hostvars.node4.ansible_host }}:8485;{{ hostvars.node5.ansible_host }}:8485</value></property>
+<property><name>dfs.ha.fencing.methods</name><value>shell(/bin/true)</value></property>
+</configuration>

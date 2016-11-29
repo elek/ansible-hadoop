@@ -1,0 +1,6 @@
+- template: src=zoo.cfg dest="{{install_dir}}/zookeeper/conf/zoo.cfg"
+- template: src=supervisor.conf dest=/etc/supervisor/conf.d/zookeeper.conf
+- supervisorctl: name=zookeeper state=present
+- supervisorctl: name=zookeeper state=restarted
+    
+

@@ -1,0 +1,2 @@
+ZEPPELIN_SPARK_USEHIVECONTEXT=false
+SPARK_HOME={{install_dir}}/spark2

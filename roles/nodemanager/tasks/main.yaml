@@ -1,0 +1,12 @@
+- include_vars: common.yaml
+- file: dest={{install_dir}}/hadoop/etc/nodemanager state=directory
+- file: dest=/grid/0/hadooptmp state=directory
+- file: dest=/grid/0/logs/yarn state=directory
+- template: src=yarn-site.xml dest={{install_dir}}/hadoop/etc/nodemanager/yarn-site.xml
+- template: src=hdfs-site.xml dest={{install_dir}}/hadoop/etc/nodemanager/hdfs-site.xml
+- template: src=core-site.xml dest={{install_dir}}/hadoop/etc/nodemanager/core-site.xml
+- template: src=yarn-env.sh dest={{install_dir}}/hadoop/etc/nodemanager/yarn-env.sh
+- template: src=supervisor.conf dest=/etc/supervisor/conf.d/nodemanager.conf
+- supervisorctl: name=nodemanager state=present
+- supervisorctl: name=nodemanager state=restarted
+
