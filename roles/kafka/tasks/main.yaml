@@ -1,0 +1,18 @@
+- name: download kafka
+  get_url:
+     url: "{{ kafka.url }}"
+     dest: "{{ install_dir }}/kafka.tar.gz"
+- name: create destination directory
+  file:
+     name: "{{ install_dir }}/kafka"
+     state: directory
+- name: unpack
+  unarchive:
+     src: "{{ install_dir }}/kafka.tar.gz"
+     dest: "{{ install_dir }}/kafka"
+     remote_src: yes
+     extra_opts: "--strip-components=1"
+- template: src=supervisor.conf dest=/etc/supervisor/conf.d/kafka.conf
+- supervisorctl: name=kafka state=present
+- supervisorctl: name=kafka state=restarted
+
